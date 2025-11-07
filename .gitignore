@@ -1,0 +1,36 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executables
+chip8
+chip8.exe
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Library files
+*.a
+*.lib
+
+# Dependency files
+*.d
+
+# Build directories (if you use them later)
+build/
+bin/
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Core dumps
+core
+vgcore.*
