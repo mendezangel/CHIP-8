@@ -41,4 +41,7 @@ int main(int argc, char* argv[]) {
     // Delay to control speed (typically 500-700 Hz)
     SDL_Delay(2); // ~500 Hz (1000ms / 2ms = 500 cycles/sec)
   }
+
+  display_cleanup();
+  return 0;
 }
