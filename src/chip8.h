@@ -8,13 +8,13 @@
 #define REGISTER_COUNT 16
 #define STACK_SIZE 16
 #define KEY_COUNT 16
-#define DIPLAY_WIDTH 64
+#define DISPLAY_WIDTH 64
 #define DISPLAY_HEIGHT 32
 
 typedef struct {
   uint8_t memory[MEMORY_SIZE];        // 4KB memory
   uint8_t V[REGISTER_COUNT];          // 16 registers (V0-VF)
-  uint16_t I;                         // Index register
+  uint16_t I;                         // Address register
   uint16_t pc;                        // Program counter
   uint8_t sp;                         // Stack pointer
   uint16_t stack[STACK_SIZE];         // Stack
