@@ -10,6 +10,7 @@
 #define KEY_COUNT 16
 #define DISPLAY_WIDTH 64
 #define DISPLAY_HEIGHT 32
+#define START_ADRESS 0x200
 
 typedef struct {
   uint8_t memory[MEMORY_SIZE];        // 4KB memory
@@ -22,6 +23,7 @@ typedef struct {
   uint8_t sound_timer;                // Sound timer
   uint8_t keypad[KEY_COUNT];          // Keypad state
   uint32_t display[DISPLAY_HEIGHT][DISPLAY_WIDTH]; // Display buffer
+  uint16_t opcode;
   bool draw_flag;                                    // Flag to indicate screen update needed 
 } Chip8;
 
