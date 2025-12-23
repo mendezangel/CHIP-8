@@ -5,6 +5,8 @@
 # Executables
 chip8
 chip8.exe
+test_chip8
+test_chip8.exe
 
 # Debug files
 *.dSYM/
