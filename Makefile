@@ -9,15 +9,14 @@ TARGET = chip8
 
 # Tests
 TEST_SRC = tests/test_chip8.c src/chip8.c
-TEST_OBJ = $(TEST_SRC:.c=.o)
 TEST_TARGET = test_chip8
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CC) $(OBJ) -P $(TARGET) $(LIBS)
+	$(CC) $(OBJ) -o $(TARGET) $(LIBS)
 
-# Test target - compiles without SDL
+# Build and run tests
 test: $(TEST_TARGET)
 	./$(TEST_TARGET)
 
@@ -25,4 +24,4 @@ $(TEST_TARGET): $(TEST_SRC)
 	$(CC) $(CFLAGS) $(TEST_SRC) -o $(TEST_TARGET)
 
 clean:
-	rm -f $(OBJ) $(TEST_OBJ) $(TARGET) $(TEST_TARGET)
+	rm -f $(OBJ) $(TARGET) $(TEST_TARGET)
