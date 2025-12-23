@@ -11,6 +11,8 @@
 #define DISPLAY_WIDTH 64
 #define DISPLAY_HEIGHT 32
 #define START_ADRESS 0x200
+#define FONTSET_START_ADDRESS 0x50
+#define FONTSET_SIZE 80
 
 typedef struct {
   uint8_t memory[MEMORY_SIZE];        // 4KB memory
