@@ -1,5 +1,6 @@
 #include "../src/chip8.h"
 #include <assert.h>
+#include <stdio.h>
 
 void test_chip8_init() {
     Chip8 chip8;
@@ -13,4 +14,10 @@ void test_chip8_init() {
     assert(chip8.memory[FONTSET_START_ADDRESS] == 0xF0); // First byte of '0' character
     
     printf("test_chip8_init passed \n");
+}
+
+int main() {
+    test_chip8_init();
+
+    return 0;
 }
