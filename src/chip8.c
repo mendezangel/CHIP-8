@@ -1,7 +1,9 @@
-#include "chip8.h"
 #include <stdint.h>
 #include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
+#include "chip8.h"
 
 static const uint8_t chip8_fontset[80] = {
     0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
@@ -44,7 +46,14 @@ void chip8_cycle(Chip8* chip8) {
     */
 }
 
-bool chip8_load_rom(Chip8* chip8, const char* filename) {
+bool chip8_load_rom(Chip8 *chip8, const char *filename) {
+    FILE *fp;
+
+    fp = fopen(filename, "rb");
+    if (fp == NULL) {
+      perror("Failed to open file");
+      return EXIT_FAILURE;
+    }
     return false; // TODO: Implement
 }
 
