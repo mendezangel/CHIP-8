@@ -30,11 +30,12 @@ typedef struct {
 } Chip8;
 
 // Initialize Chip8 record.
+
 // Parameters:
 //  - Chip *chip8: pointer to chip8 record.
 void chip8_init(Chip8 *chip8);
 
-// Load rom into TODO loading into what again?
+// Load rom into chip8 memory.
 bool chip8_load_rom(Chip8 *chip8, const char* filename);
 
 // TODO: function description

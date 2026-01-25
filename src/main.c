@@ -7,15 +7,15 @@
 int main(int argc, char* argv[]) {
   if (argc < 2) {
     printf("Usage: %s <ROM file>\n", argv[0]);
-    return 1;
+    return EXIT_FAILURE;
   }
 
   Chip8 chip8;
-  chip8_init(&chip8); //TODO: implement
+  chip8_init(&chip8);
   
   if (!chip8_load_rom(&chip8, argv[1])) { // TODO: implement
-    printf("Failed to load ROM\n");
-    return 1;
+    fprintf(stderr, "Failed to load ROM\n");
+    return EXIT_FAILURE;
   }
 
   display_init(); // TODO: implement
@@ -43,5 +43,5 @@ int main(int argc, char* argv[]) {
   }
 
   display_cleanup();
-  return 0;
+  return EXIT_SUCCESS;
 }

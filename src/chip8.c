@@ -29,6 +29,8 @@ void chip8_init(Chip8* chip8) {
 
     // Zero out the entire struct
     memset(chip8, 0, sizeof(Chip8));
+
+    // Set program counter to start address in memory.
     chip8->pc = START_ADDRESS; // e.g. 0x200
     
     // load fontset into memory
@@ -52,9 +54,32 @@ bool chip8_load_rom(Chip8 *chip8, const char *filename) {
     fp = fopen(filename, "rb");
     if (fp == NULL) {
       perror("Failed to open file");
-      return EXIT_FAILURE;
+      return false;
     }
-    return false; // TODO: Implement
+
+    // Get file size
+    fseek(fp, 0, SEEK_END);
+    long file_size = ftell(fp);
+    rewind(fp);
+    
+    // Check if ROM fits in available memory
+    if (file_size > (MEMORY_SIZE - START_ADDRESS)) {
+      fprintf(stderr, "ROM too large to fit into memory.\n");
+      fclose(fp);
+      return false;
+    }
+
+    // Read ROM directly into memory starting at START_ADDRESS
+    size_t bytes_read = fread(&chip8->memory[START_ADDRESS], 1, file_size, fp);
+
+    fclose(fp);
+
+    if (bytes_read != file_size) {
+      fprintf(stderr, "Failed to read entire ROM\n");
+      return false;
+    }
+
+    return true;
 }
 
 void chip8_update_timers(Chip8* chip8) {
